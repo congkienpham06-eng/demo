@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Chi tiết đánh giá</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">
+      <span>📶</span><span>📡</span><span>🔋100%</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Chi tiết đánh giá</span>
+    <span class="spacer"></span>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="content" id="reviewDetail"></div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<script src="review-detail.js"></script>
+<script>
+function updateTime(){
+  const n=new Date();
+  time.innerText=n.getHours().toString().padStart(2,'0')+":"+n.getMinutes().toString().padStart(2,'0');
+}
+updateTime(); setInterval(updateTime,60000);
+</script>
+</body>
+</html>

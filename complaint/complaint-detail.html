@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi tiết khiếu nại</title>
+<link rel="stylesheet" href="../assets/css/app.css">
+<style>
+.complaint-card { border:1px solid #ccc; padding:8px; margin:6px 0; border-radius:8px; }
+.complaint-img { width: 80px; height:80px; object-fit:cover; margin:4px; border-radius:6px; cursor:pointer; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; }
+#lightbox.show { display:flex; }
+#lightbox-img { max-width:90%; max-height:90%; }
+#lightbox .close { position:absolute; top:10px; right:20px; color:white; font-size:24px; cursor:pointer; }
+#lightbox .nav { position:absolute; top:50%; transform:translateY(-50%); font-size:36px; color:white; cursor:pointer; user-select:none; }
+#lightbox .nav.left { left:20px; }
+#lightbox .nav.right { right:20px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">📶 📡 🔋100%</div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Chi tiết khiếu nại</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content" id="complaintDetail">
+    <!-- Chi tiết khiếu nại sẽ hiển thị ở đây -->
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <span class="close">✖</span>
+    <span class="nav left">‹</span>
+    <img id="lightbox-img">
+    <span class="nav right">›</span>
+  </div>
+
+</div>
+
+<script src="complaint-detail.js"></script>
+</body>
+</html>

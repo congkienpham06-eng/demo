@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="../assets/css/app.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<!-- FLOATING ADD ROOM BUTTON -->
+
+<div class="app">
+  <div class="dynamic-island"></div>
+  <div class="status-bar">
+    <div class="status-left">
+      <span id="time">9:41</span>
+    </div>
+
+    <div class="status-right">
+      <span class="signal">📶</span>
+      <span class="wifi">📡</span>
+      <span class="battery">
+        🔋<span class="battery-percent">100%</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="title">Trang chủ</span>
+  </header>
+
+
+  <div class="content" id="list"></div>
+
+  <div class="bottom-nav">
+    <a href="home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+  <button class="add-room-btn" onclick="goPostRoom()">＋</button>
+</div>
+
+<script src="home.js"></script>
+<script>
+function goPostRoom() {
+  window.location.href = "../post/post.html";
+}
+
+</script>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  document.getElementById("time").innerText = `${h}:${m}`;
+}
+updateTime();
+setInterval(updateTime, 60000);
+</script>
+

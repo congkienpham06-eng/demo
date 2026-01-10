@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="../assets/css/app.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<div class="app">
+  <div class="dynamic-island"></div>
+  <div class="status-bar">
+    <div class="status-left">
+      <span id="time">9:41</span>
+    </div>
+
+    <div class="status-right">
+      <span class="signal">📶</span>
+      <span class="wifi">📡</span>
+      <span class="battery">
+        🔋<span class="battery-percent">100%</span>
+      </span>
+    </div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="title">Đăng nhập</span>
+  </header>
+
+  <div class="content1">
+    <input id="username" placeholder="Tên đăng nhập">
+    <input id="password" placeholder="Mật khẩu">
+    <button onclick="login()">Đăng nhập</button>
+    <button onclick="location.href='../register/register.html'">Đăng ký</button>
+  </div>
+</div>
+
+<script src="login.js"></script>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  document.getElementById("time").innerText = `${h}:${m}`;
+}
+updateTime();
+setInterval(updateTime, 60000);
+</script>

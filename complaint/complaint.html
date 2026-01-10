@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khiếu nại phòng</title>
+<link rel="stylesheet" href="../assets/css/app.css">
+<style>
+.img-preview img { width: 60px; height:60px; object-fit:cover; margin-right:5px; border-radius:8px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">📶 📡 🔋100%</div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Khiếu nại phòng</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content">
+    <div class="card">
+      <h3>Lý do khiếu nại</h3>
+      <textarea id="reason" placeholder="Nhập lý do khiếu nại..."></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Hình ảnh (tối đa 10)</h3>
+      <input type="file" id="images" accept="image/*" multiple>
+      <div id="preview" class="img-preview"></div>
+    </div>
+
+    <button class="primary-btn" id="btnSubmit">Khiếu nại</button>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<script src="complaint.js"></script>
+</body>
+</html>

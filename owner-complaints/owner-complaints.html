@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khiếu nại của phòng</title>
+<link rel="stylesheet" href="../assets/css/app.css">
+<style>
+.card { cursor: pointer; margin-bottom:10px; }
+.img-preview img { width: 50px; height:50px; object-fit:cover; margin-right:5px; border-radius:6px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">📶 📡 🔋100%</div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Khiếu nại của phòng</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content" id="complaintList"></div>
+
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<script src="owner-complaints.js"></script>
+</body>
+</html>

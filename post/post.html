@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Đăng phòng</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <div class="status-bar">
+    <div class="status-left">
+      <span id="time">9:41</span>
+    </div>
+    <div class="status-right">
+      <span class="signal">📶</span>
+      <span class="wifi">📡</span>
+      <span class="battery">🔋<span class="battery-percent">100%</span></span>
+    </div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="window.history.back()">←</span>
+    <span class="title">Đăng phòng</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content">
+    <input id="title" placeholder="Tên phòng">
+
+    <select id="city" onchange="loadDistricts()">
+      <option value="">Tỉnh, thành phố</option>
+    </select>
+
+    <select id="district" onchange="loadWards()">
+      <option value="">Quận, huyện</option>
+    </select>
+
+    <input id="ward" placeholder="Phường (tự nhập)">
+    <input id="detailAddress" placeholder="Địa chỉ chi tiết (tự nhập)">
+    <input id="price" placeholder="Giá">
+
+    <input type="file" id="image" multiple accept="image/*">
+
+    <p id="imageCount" style="font-size:13px;color:#666;margin-top:6px;"></p>
+
+    <img id="preview"
+      style="display:none;width:100%;height:160px;object-fit:cover;border-radius:12px;margin-top:10px;background:#eee">
+
+    <textarea id="mota" placeholder="Mô tả chi tiết phòng (diện tích, nội thất, giờ giấc...)"></textarea>
+
+    <button onclick="postRoom()">Đăng phòng</button>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<script src="post.js"></script>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  document.getElementById("time").innerText =
+    now.getHours().toString().padStart(2,'0') + ":" +
+    now.getMinutes().toString().padStart(2,'0');
+}
+upd

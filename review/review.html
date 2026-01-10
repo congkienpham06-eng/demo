@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Đánh giá phòng</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">
+      <span>📶</span><span>📡</span><span>🔋100%</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Đánh giá phòng</span>
+    <span class="spacer"></span>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- STAR -->
+    <div class="card">
+      <h3>Chấm điểm</h3>
+      <div class="star-rate" id="starRate">
+        <span data-star="1">⭐</span>
+        <span data-star="2">⭐</span>
+        <span data-star="3">⭐</span>
+        <span data-star="4">⭐</span>
+        <span data-star="5">⭐</span>
+      </div>
+    </div>
+
+    <!-- COMMENT -->
+    <div class="card">
+      <h3>Nhận xét</h3>
+      <textarea id="comment" placeholder="Nhập đánh giá của bạn..."></textarea>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="card">
+      <h3>Ảnh (tối đa 10)</h3>
+      <input type="file" id="images" accept="image/*" multiple>
+      <div id="preview" class="img-preview"></div>
+    </div>
+
+    <button class="primary-btn" onclick="submitReview()">Xác nhận</button>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<script src="review.js"></script>
+<script>
+function updateTime(){
+  const n = new Date();
+  const timeEl = document.getElementById("time");
+  timeEl.innerText = n.getHours().toString().padStart(2,'0') + ":" + n.getMinutes().toString().padStart(2,'0');
+}
+updateTime(); setInterval(updateTime,60000);
+</script>
+</body>
+</html>

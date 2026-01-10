@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Thông tin chủ phòng</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+
+  <style>
+    .review-images {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .review-images img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: .3s;
+      z-index: 9999;
+    }
+    .lightbox.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox-nav.left { left: 20px; }
+    .lightbox-nav.right { right: 20px; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <div class="status-bar">
+    <div class="status-left"><span id="time">9:41</span></div>
+    <div class="status-right">📶 📡 🔋100%</div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="history.back()">←</span>
+    <span class="title">Chủ phòng</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content">
+    <div class="owner-card card">
+      <h2 id="ownerFullname"></h2>
+      <p>📞 <span id="ownerPhone"></span></p>
+      <p>🏠 Đã cho thuê: <b id="roomCount">0</b> phòng</p>
+      <p>⭐ Trung bình: <b id="avgStar">Chưa có</b></p>
+    </div>
+
+    <h3>⭐ Đánh giá</h3>
+    <div id="reviewList"></div>
+  </div>
+
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html">👤</a>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">✖</span>
+  <span class="lightbox-nav left" onclick="prevImg()">‹</span>
+  <img id="lightboxImg">
+  <span class="lightbox-nav right" onclick="nextImg()">›</span>
+</div>
+
+<script src="owner-info.js"></script>
+<script>
+function updateTime() {
+  const d = new Date();
+  time.innerText =
+    d.getHours().toString().padStart(2,'0') + ":" +
+    d.getMinutes().toString().padStart(2,'0');
+}
+updateTime(); setInterval(updateTime, 60000);
+</script>
+</body>
+</html>

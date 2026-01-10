@@ -1,0 +1,496 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* BODY GIẢ LẬP MÀN HÌNH ĐIỆN THOẠI */
+body {
+  background: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+}
+
+/* KHUNG APP (iPhone 14 Pro Max) */
+.app {
+  width: 430px;
+  height: 932px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+  position: relative; /* ⭐⭐ THÊM DÒNG NÀY */
+}
+
+/* HEADER */
+header {
+  height: 60px;
+  background: #2563eb;
+  color: white;
+  font-size: 35px; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+
+
+/* CONTENT (KHÔNG BỊ NAV CHE) */
+.content {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  padding-bottom: 70px; /* chừa chỗ cho bottom nav */
+}
+
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+/* CARD */
+.card {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+/* IMAGE */
+img {    
+  display: block;
+  width: 100%;
+  margin-bottom: 10px; 
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  height: 56px;
+  background: #ffffff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;   /* ⭐ thay cho width */
+
+  z-index: 10;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #444;
+}
+
+/* ACTIVE ICON (NẾU MUỐN DÙNG) */
+.bottom-nav a.active {
+  color: #2563eb;
+}
+
+/* ADD ROOM FLOAT BUTTON */
+.add-room-btn {
+  position: absolute;
+  bottom: 72px;     /* nằm trên bottom-nav */
+  right: 16px;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #3f6df6;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  z-index: 11;
+}
+
+.room-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 126px;
+  height: 32px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 100;
+}
+
+/* STATUS BAR */
+.status-bar {
+  height: 34px;
+  background: #2563eb;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* TIME LEFT */
+.status-left {
+  width: 72px;              /* 🔥 RỘNG HƠN */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 35px;        /* xít vào nhẹ */
+}
+
+/* RIGHT ICONS */
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+/* DYNAMIC ISLAND GIẢ */
+.dynamic-island {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 22px;
+  background: black;
+  border-radius: 14px;
+}
+
+#time {
+  font-size: 14px;          /* giống iOS */
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  margin-bottom: 10px;        /* xịch lên */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* INPUT + BUTTON */
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;      /* rộng hơn */
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  resize: none;           /* không cho kéo */
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  border-color: #3f6ae1;  /* cùng màu app */
+}
+
+.payment-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center; /* canh giữa toàn bộ grid */
+  margin-top: 10px;
+}
+
+.payCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* canh giữa icon + text */
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  font-size: 18px;
+}
+
+.payCard span {
+  margin-top: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.payCard:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+.payCard.selected {
+  border: 2px solid #007bff;
+  background-color: #e6f0ff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.delete-btn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #ff7875;
+}
+
+
+.header-with-back {
+  height: 60px;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;       /* canh giữa theo chiều dọc */
+  justify-content: space-between; /* phân bố 3 phần */
+  padding: 0 12px;
+  font-size: 30px;           /* size header */
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.back-btn {
+  cursor: pointer;
+  font-size: 24px;
+  user-select: none;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.spacer {
+  width: 24px; /* giống width của back-btn để cân bằng */
+}
+
+/* Gợi ý search */
+#suggestions {
+  margin-top: 5px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  max-height: 200px; /* cuộn nếu quá dài */
+}
+
+.suggestion-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f4ff; /* màu nhẹ khi hover */
+}
+
+.note-card {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.note-card .icon {
+  width: 28px;
+  height: 28px;
+  background: #ffc107;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.note-card .note-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ===== OWNER CLICKABLE ===== */
+.owner-name {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.owner-name:hover {
+  text-decoration: underline;
+}
+
+/* ===== REVIEW ===== */
+.review {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.review b {
+  color: #2563eb;
+}
+
+/* ===== OWNER INFO CARD ===== */
+.owner-card {
+  background: #f9f9f9;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.star-rate span {
+  font-size: 28px;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.img-preview img,
+.review-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+}
+
+.lightbox span {
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.owner-link {
+  color: #0b5ed7; /* xanh dương */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.owner-link:hover {
+  opacity: 0.8;
+}
+
+.content1 {
+  flex: 1;
+  padding: 240px 12px 70px 12px; /* top right bottom left */
+  overflow-y: auto;
+}

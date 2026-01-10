@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <div class="status-bar">
+    <div class="status-left">
+      <span id="time">9:41</span>
+    </div>
+    <div class="status-right">
+      <span>📶</span>
+      <span>📡</span>
+      <span>🔋100%</span>
+    </div>
+  </div>
+
+  <header class="header-with-back">
+    <span class="back-btn" onclick="window.history.back()">←</span>
+    <span class="title">Admin Dashboard</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content">
+
+    <!-- AVATAR + NAME -->
+    <div class="profile-header">
+      <img id="avatar" class="avatar">
+      <div id="name" class="profile-name"></div>
+    </div>
+
+    <!-- input file ẨN -->
+    <input type="file" id="img" accept="image/*" hidden>
+
+    <!-- Thông tin admin -->
+    <input id="phone" placeholder="SĐT">
+    <input id="email" placeholder="Email">
+
+    <!-- Nút chức năng -->
+    <button onclick="save()">Lưu</button>
+    <button onclick="logout()">Đăng xuất</button>
+    <button onclick="addAdmin()">Thêm tài khoản admin</button>
+    <button onclick="manageComplaints()">Quản lý khiếu nại</button>
+    <button onclick="manageRooms()">Quản lý phòng đăng</button>
+    <button onclick="manageUsers()">Quản lý người dùng</button>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a href="#" class="active">👤</a>
+  </div>
+</div>
+
+<script src="admin.js" defer></script>
+<script>
+function updateTime() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  document.getElementById("time").innerText = `${h}:${m}`;
+}
+updateTime();
+setInterval(updateTime, 60000);
+</script>
+</body>
+</html>

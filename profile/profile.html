@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Hồ sơ</title>
+  <link rel="stylesheet" href="../assets/css/app.css">
+</head>
+<body>
+<div class="app">
+  <div class="dynamic-island"></div>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <div class="status-left">
+      <span id="time">9:41</span>
+    </div>
+    <div class="status-right">
+      <span>📶</span>
+      <span>📡</span>
+      <span>🔋100%</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header-with-back">
+    <span class="back-btn" onclick="window.history.back()">←</span>
+    <span class="title">Hồ sơ</span>
+    <span class="spacer"></span>
+  </header>
+
+  <div class="content">
+
+    <!-- AVATAR + NAME -->
+    <div class="profile-header">
+      <img id="avatar" class="avatar">
+      <div id="name" class="profile-name"></div>
+    </div>
+
+    <!-- input file ẨN -->
+    <input type="file" id="img" accept="image/*" hidden>
+
+    <!-- THÔNG TIN -->
+    <input id="phone" placeholder="SĐT">
+    <input id="email" placeholder="Email">
+    <input id="bank" placeholder="STK">
+
+    <button onclick="save()">Lưu</button>
+    <button onclick="logout()">Đăng xuất</button>
+
+    <!-- DANH SÁCH NÚT CHUYỂN TRANG -->
+    <button onclick="location.href='../myrooms/myrooms.html'">Danh sách phòng cho thuê</button>
+    <button onclick="location.href='../rentedrooms/rentedrooms.html'">Danh sách phòng đã thuê</button>
+    <button onclick="location.href='../owner-complaints/owner-complaints.html'">Danh sách khiếu nại</button>
+
+    <!-- Nút sinh trắc học -->
+    <button onclick="alert('Xác nhận sinh trắc học thành công')">Xác nhận sinh trắc học</button>
+
+    <!-- ĐỔI MẬT KHẨU (NGAY DƯỚI SINH TRẮC HỌC) -->
+    <h4>Đổi mật khẩu</h4>
+    <input type="password" id="currentPass" placeholder="Mật khẩu hiện tại">
+    <input type="password" id="newPass" placeholder="Mật khẩu mới">
+    <input type="password" id="confirmPass" placeholder="Xác nhận mật khẩu mới">
+    <button onclick="changePassword()">Đổi mật khẩu</button>
+
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bottom-nav">
+    <a href="../home/home.html">🏠</a>
+    <a href="../search/search.html">🔍</a>
+    <a href="../favorite/favorite.html">❤️</a>
+    <a href="../profile/profile.html" class="active">👤</a>
+  </div>
+</div>
+
+<script src="profile.js" defer></script>
+
+<script>
+function updateTime() {
+  const now = new Date();
+  const h = now.getHours().toString().padStart(2,'0');
+  const m = now.getMinutes().toString().padStart(2,'0');
+  document.getElementById("time").innerText = `${h}:${m}`;
+}
+updateTime();
+setInterval(updateTime, 60000);
+</script>
+</body>
+</html>
