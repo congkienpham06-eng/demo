@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // ===== Helper: fname || username =====
+  // ===== Helper: lấy tên hiển thị (fname || username) =====
   const getDisplayName = username => {
     const u = users.find(us => us.username === username);
     return u ? (u.fname || u.username) : username;
@@ -36,26 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
     complaintsByRoom[c.roomId].push(c);
   });
 
-  // ===== SORT ĐÚNG LOGIC FIFO + HÌNH TRÒN =====
+  // ===== Xếp phòng: nếu khách thu hồi, phòng xuống dưới =====
   const roomsSorted = Object.keys(complaintsByRoom).sort((a, b) => {
     const aComplaints = complaintsByRoom[a];
     const bComplaints = complaintsByRoom[b];
 
-    // A
-    const aHasActive = aComplaints.some(c => !c.revoked && !c.deleted);
-    const aFirstTime = Math.min(...aComplaints.map(c => c.time));
+    const aHasRevokedGuest = aComplaints.some(c => {
+      const owner = rooms.find(r => r.id == a)?.owner;
+      return c.user !== owner && c.revoked;
+    });
 
-    // B
-    const bHasActive = bComplaints.some(c => !c.revoked && !c.deleted);
-    const bFirstTime = Math.min(...bComplaints.map(c => c.time));
+    const bHasRevokedGuest = bComplaints.some(c => {
+      const owner = rooms.find(r => r.id == b)?.owner;
+      return c.user !== owner && c.revoked;
+    });
 
-    // 1️⃣ Nhóm: còn active lên trước
-    if (aHasActive !== bHasActive) {
-      return aHasActive ? -1 : 1;
-    }
-
-    // 2️⃣ Cùng nhóm → giữ FIFO theo time
-    return aFirstTime - bFirstTime;
+    // Chưa có khách thu hồi => lên trên, đã thu hồi => xuống dưới
+    return aHasRevokedGuest - bHasRevokedGuest;
   });
 
   container.innerHTML = "";
@@ -66,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardDiv = document.createElement("div");
     cardDiv.className = "complaint-card";
 
+    // ===== Build UI =====
     let innerHTML = `<h3>Phòng: ${room?.title || roomId}</h3>`;
 
     roomComplaints.forEach(c => {

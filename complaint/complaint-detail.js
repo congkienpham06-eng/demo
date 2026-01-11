@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (c.revoked) {
         displayStatus = "✔ Đã thu hồi";
-      } else if (c.status === "approved") {
+      } else if (c.status === "✔ Đã được chấp nhận") {
         displayStatus = c.user === room.owner
-          ? "✔ Chấp nhận 1"
-          : "✔ Được chấp nhận 2";
-      } else if (c.status === "rejected") {
+          ? "✔ Đã được chấp nhận"
+          : "✔ Đã được chấp nhận";
+      } else if (c.status === "❌ Đã bị từ chối") {
         displayStatus = c.user === room.owner
-          ? "❌ Bị từ chối 2"
-          : "❌ Bị từ chối 1";
+          ? "❌ Đã bị từ chối"
+          : "❌ Đã bị từ chối";
       }
 
       html += `
@@ -82,10 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (c.revoked) {
       displayStatus = "✔ Đã thu hồi";
-    } else if (c.status === "approved") {
-      displayStatus = "✔ Được admin chấp nhận";
-    } else if (c.status === "rejected") {
-      displayStatus = "❌ Bị admin từ chối";
+    } else if (c.status === "✔ Đã được chấp nhận") {
+      displayStatus = "✔ Đã được chấp nhận";
+    } else if (c.status === "❌ Đã bị từ chối") {
+      displayStatus = "❌ Đã bị từ chối";
     }
 
     html += `

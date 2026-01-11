@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <p><b>Trạng thái:</b> ${
           c.revoked
             ? "✔ Đã thu hồi"
-            : c.status === "approved"
-            ? "✔ Đã được admin chấp nhận"
-            : c.status === "rejected"
-            ? "❌ Admin từ chối"
+            : c.status === "✔ Đã được chấp nhận"
+            ? "✔ Đã được chấp nhận"
+            : c.status === "❌ Đã bị từ chối"
+            ? "❌ Đã bị từ chối"
             : "⚠ Chưa xử lý"
         }</p>
         <hr style="border:none;border-top:1px dashed #ccc;margin:6px 0;">

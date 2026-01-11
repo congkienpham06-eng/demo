@@ -67,8 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const unhandled = relatedComplaints.some(c => !c.status && !c.deleted);
   if (unhandled) {
     html += `
-      <button id="approveBtn" class="action-btn approve">Chấp nhận tất cả</button>
-      <button id="rejectBtn" class="action-btn reject">Không chấp nhận tất cả</button>
+      <button id="approveBtn" class="action-btn approve">Chấp nhận khiếu nại khách</button>
+      <button id="rejectBtn" class="action-btn reject">Từ chối khiếu nại khách</button>
     `;
   }
 
@@ -83,9 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
       relatedComplaints.forEach(c => {
         if (!c.deleted) {
           if (c.user === room.owner) {
-            c.status = "Bị từ chối"; // Chủ bị từ chối
+            c.status = "❌ Đã bị từ chối"; // Chủ bị từ chối
           } else {
-            c.status = "Được chấp nhận"; // Khách được chấp nhận
+            c.status = "✔ Đã được chấp nhận"; // Khách được chấp nhận
           }
         }
       });
@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
       relatedComplaints.forEach(c => {
         if (!c.deleted) {
           if (c.user === room.owner) {
-            c.status = "Được chấp nhận"; // Chủ được chấp nhận
+            c.status = "✔ Đã được chấp nhận"; // Chủ được chấp nhận
           } else {
-            c.status = "Bị từ chối"; // Khách bị từ chối
+            c.status = "❌ Đã bị từ chối"; // Khách bị từ chối
           }
         }
       });
